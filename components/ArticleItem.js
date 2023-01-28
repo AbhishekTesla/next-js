@@ -5,8 +5,8 @@ function ArticleItem({article}) {
   return (
    <Link href="/article/[id]" as={`/article/${article.id}`} legacyBehavior>
     <a className={articleStyles.card} >
-    <h4>{article.title} &rarr;</h4>
-    <p>{article.body}</p>
+    <h4>{article.name} &rarr;</h4>
+  <img className={articleStyles.img} src={article.pic} alt="" />
     </a>
    </Link>
 

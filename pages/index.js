@@ -1,13 +1,13 @@
-import Head from 'next/head'
+
 import ArticleList from '@/components/ArticleList'
+import baseUrl from '@/config/baseUrl'
+import Meta from '@/components/Meta'
 
 export default function Home({articles}) {
   // console.log(articles);
   return (<>
       <div>
-        <Head>
-          <title>Home</title>
-        </Head>
+        <Meta title={'Home'} />
         
       </div>
     <ArticleList articles={articles} />
@@ -19,7 +19,7 @@ export default function Home({articles}) {
 //getStaticProps (Static Site Generation) from a page, Next.js will pre-render this page at build time using the props returned by getStaticProps.
 
 export const getStaticProps = async ()=>{
-const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`)
+const res = await fetch(`${baseUrl}/api/userarticle`)
 
 const articles = await res.json()
 
